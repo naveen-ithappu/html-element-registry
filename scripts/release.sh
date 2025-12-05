@@ -41,10 +41,9 @@ git push --follow-tags
 echo "🧼 Cleaning package.json..."
 clean-package
 
-# Publish to npm (remove --dry-run when ready for real publish)
+# Publish to npm
 echo "📦 Publishing to npm..."
-npm publish --dry-run
-# npm publish --access public
+npm publish --access public
 
 # Restore package.json
 echo "♻️  Restoring package.json..."
