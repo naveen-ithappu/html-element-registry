@@ -29,17 +29,26 @@ npm run test || { echo "❌ Tests failed"; exit 1; }
 echo "📦 Building..."
 npm run build || { echo "❌ Build failed"; exit 1; }
 
-# Clean package.json for publishing
-echo "🧼 Cleaning package.json..."
-clean-package
-
 # Bump version
 echo "📝 Bumping version ($RELEASE_TYPE)..."
 npm version $RELEASE_TYPE
 
+# Create release tag
+echo "🔖 Creating release tag..."
+git tag -a "v$(npm show . version)" -m "Release v$(npm show . version)"
+git push origin "v$(npm show . version)"
+
 # Push with tags
 echo "⬆️  Pushing to remote..."
 git push --follow-tags
+
+# Clean package.json for publishing
+echo "🧼 Cleaning package.json..."
+clean-package
+
+# Publish to npm
+echo "📦 Publishing to npm..."
+npm publish --dry-run
 
 # Restore package.json
 echo "♻️  Restoring package.json..."
