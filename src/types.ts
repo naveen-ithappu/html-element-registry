@@ -10,3 +10,4 @@ export type ElementSummary = {
 };
 
 export type HtmlElementRegistry = Map<string, ElementSummary>;
+export type ElementsRecord = Record<string, ElementSummary>;

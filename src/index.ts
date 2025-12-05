@@ -1,8 +1,8 @@
 import elementsJson from './data/elements.json';
-import type { HtmlElementRegistry, ElementSummary, ElementType } from './types';
+import type { ElementSummary, ElementType, ElementsRecord } from './types';
 
-// Convert JSON object to Map for the registry
-const elementsMap = elementsJson as unknown as HtmlElementRegistry;
+// Cast JSON to proper type
+const elementsMap = elementsJson as unknown as ElementsRecord;
 
 // Helper to create immutable copy of an element
 function cloneElement(element: ElementSummary): ElementSummary {
@@ -19,7 +19,7 @@ function cloneElement(element: ElementSummary): ElementSummary {
  * @returns A copy of the element summary or null if not found
  */
 export function getElement(tagName: string): ElementSummary | null {
-  const element = elementsMap.get(tagName.toLowerCase());
+  const element = elementsMap[tagName.toLowerCase()];
   return element ? cloneElement(element) : null;
 }
 
@@ -125,7 +125,7 @@ export function isVoid(tag: string): boolean {
 export function getElementsByCategory(category: string): ElementSummary[] {
   const lowerCategory = category.toLowerCase();
   const results: ElementSummary[] = [];
-  for (const element of elementsMap.values()) {
+  for (const element of Object.values(elementsMap)) {
     if (element.category.toLowerCase() === lowerCategory) {
       results.push(cloneElement(element));
     }
@@ -140,7 +140,7 @@ export function getElementsByCategory(category: string): ElementSummary[] {
  */
 export function getElementsByType(type: ElementType): ElementSummary[] {
   const results: ElementSummary[] = [];
-  for (const element of elementsMap.values()) {
+  for (const element of Object.values(elementsMap)) {
     if (element.type === type) {
       results.push(cloneElement(element));
     }
@@ -154,7 +154,7 @@ export function getElementsByType(type: ElementType): ElementSummary[] {
  */
 export function getVoidElements(): ElementSummary[] {
   const results: ElementSummary[] = [];
-  for (const element of elementsMap.values()) {
+  for (const element of Object.values(elementsMap)) {
     if (element.isVoid) {
       results.push(cloneElement(element));
     }
@@ -168,7 +168,7 @@ export function getVoidElements(): ElementSummary[] {
  */
 export function getAllCategories(): string[] {
   const categories = new Set<string>();
-  for (const element of elementsMap.values()) {
+  for (const element of Object.values(elementsMap)) {
     categories.add(element.category);
   }
   return Array.from(categories).sort();
@@ -180,7 +180,7 @@ export function getAllCategories(): string[] {
  */
 export function getAllTypes(): ElementType[] {
   const types = new Set<ElementType>();
-  for (const element of elementsMap.values()) {
+  for (const element of Object.values(elementsMap)) {
     types.add(element.type);
   }
   return Array.from(types).sort();
@@ -190,4 +190,4 @@ export function getAllTypes(): ElementType[] {
 // Re-export types
 // ============================================================================
 
-export type { ElementSummary, ElementType, HtmlElementRegistry } from './types';
+export type { ElementSummary, ElementType } from './types';

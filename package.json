@@ -32,10 +32,10 @@
     "test:watch": "vitest",
     "scrape": "tsx scripts/scrape.ts",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run typecheck && npm run test && npm run build",
-    "release:patch": "npm version patch && git push --follow-tags",
-    "release:minor": "npm version minor && git push --follow-tags",
-    "release:major": "npm version major && git push --follow-tags"
+    "release": "bash scripts/release.sh",
+    "release:patch": "bash scripts/release.sh patch",
+    "release:minor": "bash scripts/release.sh minor",
+    "release:major": "bash scripts/release.sh major"
   },
   "keywords": [
     "html",
@@ -65,12 +65,12 @@
   "devDependencies": {
     "axios": "^1.13.2",
     "cheerio": "^1.1.2",
+    "clean-package": "^2.2.0",
     "p-limit": "^7.2.0",
     "ts-node": "^10.9.2",
     "tsup": "^8.5.1",
     "tsx": "^4.19.2",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.15",
-    "zod": "^4.1.13"
+    "vitest": "^4.0.15"
   }
 }
