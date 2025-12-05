@@ -1,0 +1,71 @@
+{
+  "name": "html-element-registry",
+  "version": "0.1.0",
+  "description": "A lightweight, type-safe npm library containing a scraped database of all standard HTML elements.",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup src/index.ts --dts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "scrape": "tsx scripts/scrape.ts",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "html",
+    "html-elements",
+    "block-elements",
+    "inline-elements",
+    "void-elements",
+    "element-registry"
+  ],
+  "author": {
+    "name": "html-element-registry contributors"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naveen-ithappu/html-element-registry.git"
+  },
+  "bugs": {
+    "url": "https://github.com/naveen-ithappu/html-element-registry/issues"
+  },
+  "homepage": "https://github.com/naveen-ithappu/html-element-registry#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "peerDependencies": {},
+  "dependencies": {},
+  "devDependencies": {
+    "axios": "^1.13.2",
+    "cheerio": "^1.1.2",
+    "p-limit": "^7.2.0",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15",
+    "zod": "^4.1.13"
+  }
+}

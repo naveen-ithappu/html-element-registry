@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "sourceMap": true,
+    "rootDir": "./",
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "types": ["node", "vitest"]
+  },
+  "include": ["src", "scripts", "tests"],
+  "exclude": ["node_modules", "dist"]
+}
