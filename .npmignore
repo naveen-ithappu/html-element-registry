@@ -1,0 +1,25 @@
+# Source files
+src/
+scripts/
+tests/
+
+# Config files
+tsconfig.json
+tsup.config.ts
+vitest.config.ts
+
+# GitHub
+.github/
+
+# Development
+node_modules/
+*.log
+.DS_Store
+
+# Build artifacts (keep only dist/)
+*.tsbuildinfo
+
+# Project files
+PROJECT_PLAN.md
+.gitignore
+.npmignore
