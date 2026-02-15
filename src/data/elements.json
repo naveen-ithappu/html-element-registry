@@ -111,6 +111,46 @@
     "category": "Content sectioning",
     "isVoid": false
   },
+  "h2": {
+    "tag": "h2",
+    "description": "Represent six levels of section headings. <h1> is the highest section level and <h6> is the lowest.",
+    "type": "block",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/Heading_Elements",
+    "category": "Content sectioning",
+    "isVoid": false
+  },
+  "h3": {
+    "tag": "h3",
+    "description": "Represent six levels of section headings. <h1> is the highest section level and <h6> is the lowest.",
+    "type": "block",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/Heading_Elements",
+    "category": "Content sectioning",
+    "isVoid": false
+  },
+  "h4": {
+    "tag": "h4",
+    "description": "Represent six levels of section headings. <h1> is the highest section level and <h6> is the lowest.",
+    "type": "block",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/Heading_Elements",
+    "category": "Content sectioning",
+    "isVoid": false
+  },
+  "h5": {
+    "tag": "h5",
+    "description": "Represent six levels of section headings. <h1> is the highest section level and <h6> is the lowest.",
+    "type": "block",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/Heading_Elements",
+    "category": "Content sectioning",
+    "isVoid": false
+  },
+  "h6": {
+    "tag": "h6",
+    "description": "Represent six levels of section headings. <h1> is the highest section level and <h6> is the lowest.",
+    "type": "block",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/Heading_Elements",
+    "category": "Content sectioning",
+    "isVoid": false
+  },
   "hgroup": {
     "tag": "hgroup",
     "description": "Represents a heading grouped with any secondary content, such as subheadings, an alternative title, or a tagline.",
@@ -844,6 +884,14 @@
     "description": "Represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.",
     "type": "block",
     "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog",
+    "category": "Interactive elements",
+    "isVoid": false
+  },
+  "geolocation": {
+    "tag": "geolocation",
+    "description": "Creates an interactive control for the user to share their geolocation data with the page.",
+    "type": "block",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/geolocation",
     "category": "Interactive elements",
     "isVoid": false
   },

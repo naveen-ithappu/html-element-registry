@@ -87,32 +87,35 @@ function parseIndexPage(html: string): HtmlElementRegistry {
       const elementCell = $(cells[0]);
       const descCell = $(cells[1]);
 
-      const link = elementCell.find('a[href*="/Web/HTML/Reference/Elements/"]').first();
-      if (!link.length) return;
-
-      const href = link.attr('href');
-      if (!href) return;
-
-      const url = href.startsWith('http') ? href : `https://developer.mozilla.org${href}`;
-
-      const rawTagText = link.text().trim() || elementCell.text().trim();
-      if (!rawTagText) return;
-
-      const tag = rawTagText.replace(/[<>]/g, '').toLowerCase();
-      if (!tag) return;
+      const links = elementCell.find('a[href*="/Web/HTML/Reference/Elements/"]');
+      if (!links.length) return;
 
       const description = descCell.text().trim();
 
-      const entry: ElementSummary = elements.get(tag) || {
-        tag,
-        description,
-        type: elementType,
-        url,
-        category: sectionTitle,
-        isVoid: VOID_TAGS.has(tag)
-      };
-      entry.category = sectionTitle;
-      elements.set(tag, entry);
+      links.each((_linkIdx: number, linkEl: any) => {
+        const link = $(linkEl);
+        const href = link.attr('href');
+        if (!href) return;
+
+        const url = href.startsWith('http') ? href : `https://developer.mozilla.org${href}`;
+
+        const rawTagText = link.text().trim();
+        if (!rawTagText) return;
+
+        const tag = rawTagText.replace(/[<>]/g, '').toLowerCase();
+        if (!tag) return;
+
+        const entry: ElementSummary = elements.get(tag) || {
+          tag,
+          description,
+          type: elementType,
+          url,
+          category: sectionTitle,
+          isVoid: VOID_TAGS.has(tag)
+        };
+        entry.category = sectionTitle;
+        elements.set(tag, entry);
+      });
     });
   });
 
